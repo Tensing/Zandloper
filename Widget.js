@@ -35,7 +35,7 @@ define(['dojo/_base/declare',
 
             postCreate: function () {
                 this.inherited(arguments);
-                console.log('postCreate');
+                this._bindEvents();
             },
 
             startup: function () {
@@ -46,40 +46,13 @@ define(['dojo/_base/declare',
                     message: d.format("DD-MM-YYYY"),
                     config: this.config
                 });
-                console.log('startup');
             },
-
-            onOpen: function () {
-                console.log('onOpen');
-            },
-
-            onClose: function () {
-                console.log('onClose');
-            },
-
-            onMinimize: function () {
-                console.log('onMinimize');
-            },
-
-            onMaximize: function () {
-                console.log('onMaximize');
-            },
-
-            onSignIn: function (credential) {
-                /* jshint unused:false*/
-                console.log('onSignIn');
-            },
-
-            onSignOut: function () {
-                console.log('onSignOut');
-            },
-
-            onPositionChange: function () {
-                console.log('onPositionChange');
-            },
-
-            resize: function () {
-                console.log('resize');
+            
+            _bindEvents: function () {
+                this.own(on(this.helpImage, 'click', lang.hitch(this, function () {
+                    var win = window.open("/widget/Zandloper/help/index.html", "_blank");
+                    win.focus();
+                })));
             },
 
             //methods to communication between widgets:
