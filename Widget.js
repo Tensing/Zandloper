@@ -52,7 +52,7 @@ define(['dojo/_base/declare',
             
             _bindEvents: function () {
                 this.own(on(this.helpImage, 'click', lang.hitch(this, function () {
-                    var win = window.open("/widget/Zandloper/help/index.html", "_blank");
+                    var win = window.open("/widget/Zandloper/help/nl/index.html", "_blank");
                     win.focus();
                 })));
             },
